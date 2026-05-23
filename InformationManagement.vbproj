@@ -1,0 +1,813 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F3D26727-A3D9-41FD-A840-2853FC39346F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>InformationManagement.My.MyApplication</StartupObject>
+    <RootNamespace>InformationManagement</RootNamespace>
+    <AssemblyName>InformationManagement</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>InformationManagement.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>InformationManagement.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.6.2\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.32.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.32.0\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.3.8\lib\net462\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>
+        ..\packages\K4os.Compression.LZ4.Streams.1.3.8\lib\net462\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>
+        ..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>
+        ..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.8.0.2\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>
+        ..\packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySqlConnector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d33d3e53aa5f8c92, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySqlConnector.2.5.0\lib\net48\MySqlConnector.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.CodeDom, Version=9.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.CodeDom.9.0.4\lib\net462\System.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>
+        ..\packages\System.Configuration.ConfigurationManager.8.0.0\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>
+        ..\packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.5.0.2\lib\net461\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>
+        ..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>
+        ..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>
+        ..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>
+        ..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>
+        ..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>
+        ..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="ZstdSharp, Version=0.8.6.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZstdSharp.Port.0.8.6\lib\net462\ZstdSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+    <Import Include="MySqlConnector" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\ActivityLogger.vb" />
+    <Compile Include="Admin\ActivityLogsForm.Designer.vb">
+      <DependentUpon>ActivityLogsForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ActivityLogsForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AddEmployee.Designer.vb">
+      <DependentUpon>AddEmployee.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddEmployee.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AddNewBatch.Designer.vb">
+      <DependentUpon>AddNewBatch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddNewBatch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminInfo.Designer.vb">
+      <DependentUpon>AdminInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\BatchFormModel.vb" />
+    <Compile Include="Admin\AddNewItems.Designer.vb">
+      <DependentUpon>AddNewItems.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddNewItems.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AddNewReservations.Designer.vb">
+      <DependentUpon>AddNewReservations.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddNewReservations.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminDashboard.Designer.vb">
+      <DependentUpon>AdminDashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminDashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Adminlogin.Designer.vb">
+      <DependentUpon>Adminlogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Adminlogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\BatchManagement.Designer.vb">
+      <DependentUpon>BatchManagement.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\BatchManagement.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\ConfigurationPage.Designer.vb">
+      <DependentUpon>ConfigurationPage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ConfigurationPage.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Customer.Designer.vb">
+      <DependentUpon>Customer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Customer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Dashboard.Designer.vb">
+      <DependentUpon>Dashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Dashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\DatabaseConfigManager.vb" />
+    <Compile Include="Admin\EditBatch.Designer.vb">
+      <DependentUpon>EditBatch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditBatch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\EditEmployee.Designer.vb">
+      <DependentUpon>EditEmployee.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditEmployee.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Employee.Designer.vb">
+      <DependentUpon>Employee.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Employee.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Feedback.Designer.vb">
+      <DependentUpon>Feedback.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Feedback.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormAddUser.Designer.vb">
+      <DependentUpon>FormAddUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormAddUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormCheckIngredients.Designer.vb">
+      <DependentUpon>FormCheckIngredients.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormCheckIngredients.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormEditIngredients.Designer.vb">
+      <DependentUpon>FormEditIngredients.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormEditIngredients.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormEditPayroll.Designer.vb">
+      <DependentUpon>FormEditPayroll.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormEditPayroll.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\InventoryMovementHistory.Designer.vb">
+      <DependentUpon>InventoryMovementHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\InventoryMovementHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\OrderCalendar.Designer.vb">
+      <DependentUpon>OrderCalendar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\OrderCalendar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\OrderPayment.Designer.vb">
+      <DependentUpon>OrderPayment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\OrderPayment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormAddNewmenuItem.Designer.vb">
+      <DependentUpon>FormAddNewmenuItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormAddNewmenuItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormAddNewPayrollRecord.Designer.vb">
+      <DependentUpon>FormAddNewPayrollRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormAddNewPayrollRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormAddOrder.Designer.vb">
+      <DependentUpon>FormAddOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormAddOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormEdit.Designer.vb">
+      <DependentUpon>FormEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormEditMenu.Designer.vb">
+      <DependentUpon>FormEditMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormEditMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormUser.Designer.vb">
+      <DependentUpon>FormUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Inventory.Designer.vb">
+      <DependentUpon>Inventory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Inventory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\MenuItems.Designer.vb">
+      <DependentUpon>MenuItems.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\MenuItems.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\modDB.vb" />
+    <Compile Include="Admin\OrderDataMaintenance.vb" />
+    <Compile Include="Admin\Orders.Designer.vb">
+      <DependentUpon>Orders.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Orders.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Payroll.Designer.vb">
+      <DependentUpon>Payroll.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Payroll.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\ProductIngredientUsageHistory.Designer.vb">
+      <DependentUpon>ProductIngredientUsageHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ProductIngredientUsageHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Reports.Designer.vb">
+      <DependentUpon>Reports.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Reports.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormReportPreview.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\ReservationCalendar.Designer.vb">
+      <DependentUpon>ReservationCalendar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ReservationCalendar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\ReservationChartHelper.vb" />
+    <Compile Include="Admin\ReservationPayment.Designer.vb">
+      <DependentUpon>ReservationPayment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ReservationPayment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Reservations.Designer.vb">
+      <DependentUpon>Reservations.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Reservations.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\RoundedButton.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Admin\Setting.Designer.vb">
+      <DependentUpon>Setting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Setting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\UsersAccounts.Designer.vb">
+      <DependentUpon>UsersAccounts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UsersAccounts.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormCateringReservations.Designer.vb">
+      <DependentUpon>FormCateringReservations.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormCateringReservations.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormCustomerHistory.Designer.vb">
+      <DependentUpon>FormCustomerHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormCustomerHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormCustomerOrderHistory.Designer.vb">
+      <DependentUpon>FormCustomerOrderHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormCustomerOrderHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormDineInOrders.Designer.vb">
+      <DependentUpon>FormDineInOrders.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormDineInOrders.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormEmployeeAttendance.Designer.vb">
+      <DependentUpon>FormEmployeeAttendance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormEmployeeAttendance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormOrders.Designer.vb">
+      <DependentUpon>FormOrders.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormOrders.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormPayroll.Designer.vb">
+      <DependentUpon>FormPayroll.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormPayroll.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormProductPerformance.Designer.vb">
+      <DependentUpon>FormProductPerformance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormProductPerformance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormReservationStatus.Designer.vb">
+      <DependentUpon>FormReservationStatus.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormReservationStatus.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormSales.Designer.vb">
+      <DependentUpon>FormSales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormSales.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormSelectEmployee.Designer.vb">
+      <DependentUpon>FormSelectEmployee.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\CreateAccount.Designer.vb">
+      <DependentUpon>CreateAccount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\CreateAccount.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormUpdateStatus.Designer.vb">
+      <DependentUpon>FormUpdateStatus.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormUpdateStatus.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormSelectEmployee.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormTakeOutOrders.Designer.vb">
+      <DependentUpon>FormTakeOutOrders.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormTakeOutOrders.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="FlatNumericUpDown.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="RoundedPanel.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RoundedTextBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RoundedPane2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="searchTextBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Admin\ActivityLogsForm.resx">
+      <DependentUpon>ActivityLogsForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AddEmployee.resx">
+      <DependentUpon>AddEmployee.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AddNewBatch.resx">
+      <DependentUpon>AddNewBatch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AddNewItems.resx">
+      <DependentUpon>AddNewItems.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AddNewReservations.resx">
+      <DependentUpon>AddNewReservations.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AdminDashboard.resx">
+      <DependentUpon>AdminDashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AdminInfo.resx">
+      <DependentUpon>AdminInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Adminlogin.resx">
+      <DependentUpon>Adminlogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\BatchManagement.resx">
+      <DependentUpon>BatchManagement.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\ConfigurationPage.resx">
+      <DependentUpon>ConfigurationPage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\CreateAccount.resx">
+      <DependentUpon>CreateAccount.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Customer.resx">
+      <DependentUpon>Customer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Dashboard.resx">
+      <DependentUpon>Dashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\EditBatch.resx">
+      <DependentUpon>EditBatch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\EditEmployee.resx">
+      <DependentUpon>EditEmployee.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Employee.resx">
+      <DependentUpon>Employee.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Feedback.resx">
+      <DependentUpon>Feedback.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormAddNewmenuItem.resx">
+      <DependentUpon>FormAddNewmenuItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormAddNewPayrollRecord.resx">
+      <DependentUpon>FormAddNewPayrollRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormAddOrder.resx">
+      <DependentUpon>FormAddOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormAddUser.resx">
+      <DependentUpon>FormAddUser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormCheckIngredients.resx">
+      <DependentUpon>FormCheckIngredients.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormEdit.resx">
+      <DependentUpon>FormEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormCateringReservations.resx">
+      <DependentUpon>FormCateringReservations.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormCustomerHistory.resx">
+      <DependentUpon>FormCustomerHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormCustomerOrderHistory.resx">
+      <DependentUpon>FormCustomerOrderHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormEditIngredients.resx">
+      <DependentUpon>FormEditIngredients.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormEditMenu.resx">
+      <DependentUpon>FormEditMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormEditPayroll.resx">
+      <DependentUpon>FormEditPayroll.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormReportPreview.resx">
+      <DependentUpon>FormReportPreview.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormSelectEmployee.resx">
+      <DependentUpon>FormSelectEmployee.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormUpdateStatus.resx">
+      <DependentUpon>FormUpdateStatus.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormUser.resx">
+      <DependentUpon>FormUser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormEmployeeAttendance.resx">
+      <DependentUpon>FormEmployeeAttendance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormOrders.resx">
+      <DependentUpon>FormOrders.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormProductPerformance.resx">
+      <DependentUpon>FormProductPerformance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormReservationStatus.resx">
+      <DependentUpon>FormReservationStatus.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormTakeOutOrders.resx">
+      <DependentUpon>FormTakeOutOrders.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Inventory.resx">
+      <DependentUpon>Inventory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\InventoryMovementHistory.resx">
+      <DependentUpon>InventoryMovementHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\MenuItems.resx">
+      <DependentUpon>MenuItems.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\OrderCalendar.resx">
+      <DependentUpon>OrderCalendar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\OrderPayment.resx">
+      <DependentUpon>OrderPayment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Orders.resx">
+      <DependentUpon>Orders.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Payroll.resx">
+      <DependentUpon>Payroll.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\ProductIngredientUsageHistory.resx">
+      <DependentUpon>ProductIngredientUsageHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Reports.resx">
+      <DependentUpon>Reports.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\ReservationCalendar.resx">
+      <DependentUpon>ReservationCalendar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\ReservationPayment.resx">
+      <DependentUpon>ReservationPayment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Reservations.resx">
+      <DependentUpon>Reservations.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Setting.resx">
+      <DependentUpon>Setting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\UsersAccounts.resx">
+      <DependentUpon>UsersAccounts.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormDineInOrders.resx">
+      <DependentUpon>FormDineInOrders.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormPayroll.resx">
+      <DependentUpon>FormPayroll.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormSales.resx">
+      <DependentUpon>FormSales.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Admin\generate_reservations.py" />
+    <None Include="Admin\generate_reservations_fixed.py" />
+    <None Include="bin\Debug\db_config.ini" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Admin\FormLogin\" />
+    <Folder Include="Staff\" />
+    <Folder Include="User\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Resources\dashboard %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\philippines-peso-currency-symbol %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user %286%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user %287%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fork-and-knife.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fork-and-knife1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fork-and-knife %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background2.jpg" />
+    <Content Include="Resources\search_icon.png" />
+    <None Include="Resources\search_icon1.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

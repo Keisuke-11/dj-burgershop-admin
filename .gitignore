@@ -1,0 +1,24 @@
+# Build output
+bin/
+obj/
+
+# Visual Studio files
+.vs/
+*.user
+*.suo
+*.userprefs
+
+# NuGet packages
+packages/
+*.nupkg
+
+# OS files
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Config with credentials
+db_config.ini
+
+# Log files
+*.log
