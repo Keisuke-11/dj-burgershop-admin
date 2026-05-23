@@ -1,0 +1,5 @@
+[Database]
+Server=localhost
+Database=dj_burgershop
+Uid=root
+Pwd=
